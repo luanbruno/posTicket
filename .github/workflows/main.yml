@@ -10,13 +10,20 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3.1.0
+    
+    - name: Autenticação no docker
+      uses: docker/login-action@v2.1.0
+      with:
+        username: ${{secret.DOCKERHUB_USER}}
+        password: ${{secret.DOCKERHUB_SENHA}}
+    
     - name: Contução da imagem docker
       uses: docker/build-push-action@v3.2.0
-    with:
-      context: ./src
-      file: ./src/Dockerfile
-      push: true
-      tags:
-        luanbruno/posticket-new:v1
-        luanbruno/posticket-new:latest
+      with:
+        context: ./src
+        file: ./src/Dockerfile
+        push: true
+        tags:
+          luanbruno/posticket-new:v1
+          luanbruno/posticket-new:latest
         
