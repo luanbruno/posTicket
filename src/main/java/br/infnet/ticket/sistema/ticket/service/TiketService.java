@@ -23,6 +23,7 @@ public class TiketService {
 		ticket.getProduto().forEach(produto -> {
 			System.out.println("Ticket Produto: "+produto.getName());
 			System.out.println("Prioridade: "+produto.getPrioridade());
+			System.out.println("teste: ");
 		});
 
 		ticket.getMessages().forEach(messagem -> {
